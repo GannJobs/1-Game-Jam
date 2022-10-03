@@ -2,8 +2,8 @@ function love.load()
     Classe = require "classes/classic"
 
     require "cenario"
-    require "classes/espinhos"
     require "classes/bloco"
+    require "classes/espinhos"
     require "cenas/jogo"
 end
 

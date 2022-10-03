@@ -11,6 +11,7 @@ end
 function Jogo:update(dt)
    Bloco:update(dt)
    Cenario:update(dt)
+
    cont = cont + dt
 
    if cont > 1.5 then 
