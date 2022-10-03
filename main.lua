@@ -4,6 +4,7 @@ function love.load()
     require "cenario"
     require "classes/bloco"
     require "classes/espinhos"
+    require "classes.plataformas"
     require "cenas/jogo"
 end
 

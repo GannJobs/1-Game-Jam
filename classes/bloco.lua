@@ -12,14 +12,14 @@ function Bloco:new()
 end
 
 function Bloco:update(dt)
-    self.y = self.y + self.Vy*dt
+    self.y = self.y + self.Vy * dt
 
-    if self.noChao then           --no chão
+    if self.noChao then -- no chão
         if love.keyboard.isDown("w") then
             self.Vy = -self.speed
             self.noChao = false
         end
-    else                          --no ar
+    else -- no ar
 
         self.Vy = self.Vy + self.gravidade
 
