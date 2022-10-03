@@ -42,6 +42,9 @@ function Bloco:update(dt)
         self.y = Plataformas.height + Plataformas.y
         self.noChao = true
         self.Vy = 0
+    elseif naplataforma(self, Plataformas) and self.x + self.width > Plataformas.width + Plataformas.x then
+        self.Vy = -self.speed
+        self.noChao = false
     end
 end
 
