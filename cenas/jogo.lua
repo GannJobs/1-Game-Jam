@@ -1,3 +1,5 @@
+--Pasta que será feita a manipulação dos objetos gerados para o jogo
+
 Jogo = Classe:extend()
 
 function Jogo:new()
@@ -16,7 +18,7 @@ function Jogo:update(dt)
 
     cont = cont + dt
 
-    if cont > 2 then
+    if cont > 2 then --Cria uma lista de Espinhos e Plataformas
         local espinho = Espinhos()
         table.insert(listaE, espinho)
         local plataforma = Plataformas()
@@ -26,7 +28,7 @@ function Jogo:update(dt)
     end
 end
 
-function Jogo:draw()
+function Jogo:draw() --desenha todos os elementos
     Cenario:draw()
     Bloco:draw()
 
@@ -38,7 +40,7 @@ function Jogo:draw()
     end
 end
 
-function checacolisao(a, b)
+function checacolisao(a, b) --checa a colisao com qualquer elemento
     if a.x + a.width > b.x and a.x < b.x + b.width and a.y + a.height > b.y and a.y < b.y + b.height then
         return true
     else
@@ -46,10 +48,18 @@ function checacolisao(a, b)
     end
 end
 
-function naplataforma(a, b)
+function naplataforma(a, b) --checa se o bloco do jogador se encontra encima da plataforma
     if a.y + a.height > b.y then
         return true
     else
         return false
     end
+end
+
+function choqueplataforma(a, b) --checa se o bloco do jogador da de cara com o bloco da plataforma
+   if a.x + a.width > b.x then
+       return true
+   else
+       return false
+   end
 end

@@ -1,3 +1,5 @@
+-- Pasta que cria a cena e ja faz a chamada dos arquivos
+
 function love.load()
     Classe = require "classes/classic"
 
