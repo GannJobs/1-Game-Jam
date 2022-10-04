@@ -30,19 +30,21 @@ function Bloco:update(dt)
         end
     end
 
-    if checacolisao(self, Espinhos) then --verifica se o bloco perdeu acertando o espinho, fechando o programa(pensar em uma forma melhor de sinalizar derrota depois)
-        love.event.quit( exitstatus)
+    p = Plataformas()
+
+    if checacolisao(self, Espinhos()) then --verifica se o bloco perdeu acertando o espinho, fechando o programa(pensar em uma forma melhor de sinalizar derrota depois)
+        love.event.quit(exitstatus)
     end
 
-    if choqueplataforma(self, Plataformas) then --verifica se o bloco atingiiu a plataforma, assim perdendo
-        love.event.quit( exitstatus)
+    if choqueplataforma(self, p) then --verifica se o bloco atingiiu a plataforma, assim perdendo
+        love.event.quit(exitstatus)
     end
 
-    if naplataforma(self, Plataformas) then --verifica se o bloco esta encima da plataforma
-        self.y = Plataformas.height + Plataformas.y
+    if naplataforma(self, p) then --verifica se o bloco esta encima da plataforma
+        self.y = p.height + p.y
         self.noChao = true
         self.Vy = 0
-    elseif naplataforma(self, Plataformas) and self.x + self.width > Plataformas.width + Plataformas.x then
+    elseif naplataforma(self, p) and self.x + self.width > p.width + p.x then
         self.Vy = -self.speed
         self.noChao = false
     end

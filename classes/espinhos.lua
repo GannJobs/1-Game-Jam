@@ -1,7 +1,7 @@
 Espinhos = Classe:extend()
 
 function Espinhos:new()
-    self.img = love.graphics.newImage("imagens/Meu projeto.png")
+    self.img = love.graphics.newImage("imagens/T.png")
     self.width = 50
     self.height = 50
     self.x = love.graphics.getWidth() + self.width

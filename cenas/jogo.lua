@@ -4,8 +4,7 @@ Jogo = Classe:extend()
 
 function Jogo:new()
     bloco = Bloco()
-    Cenario:new()
-    Plataformas:new()
+    Cenario:load()
 
     listaE = {}
     listaP = {}
@@ -13,7 +12,7 @@ function Jogo:new()
 end
 
 function Jogo:update(dt)
-    Bloco:update(dt)
+    bloco:update(dt)
     Cenario:update(dt)
 
     cont = cont + dt
@@ -30,7 +29,7 @@ end
 
 function Jogo:draw() --desenha todos os elementos
     Cenario:draw()
-    Bloco:draw()
+    bloco:draw()
 
     for i, espinho in pairs(listaE) do
         Espinhos:draw()
@@ -38,28 +37,4 @@ function Jogo:draw() --desenha todos os elementos
     for c, plataforma in pairs(listaP) do
         Plataformas:draw()
     end
-end
-
-function checacolisao(a, b) --checa a colisao com qualquer elemento
-    if a.x + a.width > b.x and a.x < b.x + b.width and a.y + a.height > b.y and a.y < b.y + b.height then
-        return true
-    else
-        return false
-    end
-end
-
-function naplataforma(a, b) --checa se o bloco do jogador se encontra encima da plataforma
-    if a.y + a.height > b.y then
-        return true
-    else
-        return false
-    end
-end
-
-function choqueplataforma(a, b) --checa se o bloco do jogador da de cara com o bloco da plataforma
-   if a.x + a.width > b.x then
-       return true
-   else
-       return false
-   end
 end
